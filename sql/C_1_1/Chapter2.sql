@@ -1,0 +1,28 @@
+-- 1. 口座テーブルの全てのデータを「*」を用いずに抽出する。
+SELECT ACCOUNT_CODE, ACCOUNT_NAME, TYPE, BALANCE, UPDATE_AT FROM ACCOUNT;
+
+-- 2. 口座テーブルの全ての口座番号を抽出する。
+SELECT ACCOUNT_CODE FROM ACCOUNT;
+
+-- 3. 口座テーブルの全ての口座番号と残高を抽出する
+SELECT ACCOUNT_CODE, BALANCE FROM ACCOUNT;
+
+-- 4. 口座テーブルの全てのデータを「*」を用いて抽出する
+SELECT * FROM ACCOUNT;
+
+-- 5. 口座テーブルの全ての名義を「XXXXX」に更新する。
+UPDATE ACCOUNT SET ACCOUNT_NAME = 'XXXXX　ZZZZ';
+ROLLBACK;
+
+-- 6. 口座テーブルの全ての残高を9999999、更新日を「2022-03-01」に更新する。
+UPDATE ACCOUNT SET BALANCE = 999999, UPDATE_AT = '2022-03-01';
+ROLLBACK;
+
+-- 7. 口座テーブルに次の3つのデータを1回の実行ごとに1つずつ登録する。
+INSERT INTO ACCOUNT VALUES('0642191', 'アオキ　ハルカ', 1, 3640551, '2022-03-13');
+INSERT INTO ACCOUNT VALUES('1039410', 'キノシタ　リュウジ', 1, 259017, '2021-11-30');
+INSERT INTO ACCOUNT VALUES('1239855', 'タカシナ　ミツル', 2, 6509773, NULL);
+ROLLBACK;
+
+-- 8. 口座テーブルの全てのデータを削除する。
+DELETE * FROM ACCOUNT;
